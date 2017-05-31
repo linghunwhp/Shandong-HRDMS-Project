@@ -2,7 +2,7 @@ package org.huangfugui.ibatis.enums;
 
 public enum UserType {
 
-    USER(1,"普通用户"),ADMINISTRATOR(2,"管理员");
+    ENTERPRISEUSER(0,"企业用户"),CITYUSER(1,"市用户"),PROVINCIALUSER(2,"省用户");
 
     private int id;
     private String name;

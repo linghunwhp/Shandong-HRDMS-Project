@@ -18,17 +18,6 @@ public class BasicController {
     @Autowired
     private BasicService basicService;
 
-    @RequestMapping(value = "/register",
-                    method = RequestMethod.POST,
-                    produces = {"application/json;charset=UTF-8"})
-    @ResponseBody
-    public Result registerHandler(HttpServletRequest request, Model model){
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        String userType = request.getParameter("userType");
-        return basicService.registerUser(username,password,userType);
-    }
-
     @RequestMapping(value = "/login",
             method = RequestMethod.POST,
             produces = {"application/json;charset=UTF-8"})
