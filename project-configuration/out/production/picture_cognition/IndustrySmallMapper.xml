@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.huangfugui.ibatis.mapper.IndustrySmallMapper">
+    <resultMap id="industrySmallMap" type="industrySmall">
+        <association property="industryBig" column="industry_father" select="org.huangfugui.ibatis.mapper.IndustryBigMapper.selectByBigId"></association>
+    </resultMap>
+    <select id="selectBySmallId" resultMap="industrySmallMap">
+        SELECT
+          *
+        FROM
+          enterprise_industry_small
+        WHERE
+          industry_small_id=#{smallId}
+    </select>
+</mapper>

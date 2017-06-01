@@ -17,14 +17,8 @@ public class UserMapperTest {
     private UserMapper userMapper;
 
     @Test
-    public void insertUser() throws Exception {
-        int result = userMapper.insertUser("1151650717@qq.com","123", UserType.USER);
-        System.out.println(result);
-    }
-
-    @Test
     public void selectByUsernameAndPassword() throws Exception {
-        User user = userMapper.selectByUsernameAndPassword("1151650717@qq.com","123");
+        User user = userMapper.selectByUsernameAndPassword("黄复贵","123");
         System.out.println(user);
     }
 }

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.huangfugui.ibatis.mapper.ApprovalMapper">
+    <!--增加一条数据审核记录-->
+    <insert id="addApproval">
+        INSERT IGNORE INTO
+        approval (apply_id,user_id,approval_status,approval_describe)
+        VALUES
+        (#{applyId},#{userId},#{approvalStatus},#{approvalDescribe})
+    </insert>
+
+
+    <select id="selectById" resultType="approval" parameterType="int">
+        select
+        *
+        FROM
+        approval
+        WHERE
+        approval_id=#{approvalId}
+    </select>
+
+    <select id="selectByUser" resultType="approval">
+        select
+          *
+        FROM
+          approval
+        WHERE
+          user_id=#{userId}
+    </select>
+
+    <select id="selectByStatus" resultType="Approval">
+        SELECT
+          *
+        FROM
+          approval
+        WHERE
+          approval_status=#{approvalStatus}
+    </select>
+
+
+    <select id="selectByApplyId" resultType="approval">
+        SELECT
+          *
+        FROM
+          approval
+        WHERE
+          apply_id=#{applyId}
+    </select>
+
+    <delete id="deleteByApprovalId">
+        DELETE FROM
+          approval
+        WHERE
+          approval_id=#{approvalId}
+    </delete>
+</mapper>

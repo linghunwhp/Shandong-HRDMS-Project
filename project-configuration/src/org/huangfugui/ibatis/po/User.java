@@ -1,25 +1,20 @@
 package org.huangfugui.ibatis.po;
 
-import org.huangfugui.ibatis.enums.Sex;
 import org.huangfugui.ibatis.enums.UserType;
 
 public class User {
 
-    private int id;
+    private int userId;
     private String username;
     private String password;
-    private String nickname;
-    private Sex sex;
-    private String headImage;
-    private String sign;
     private UserType userType;
-
-    public int getId() {
-        return id;
+    private int userCity;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getUsername() {
@@ -38,38 +33,6 @@ public class User {
         this.password = password;
     }
 
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
-    public Sex getSex() {
-        return sex;
-    }
-
-    public void setSex(Sex sex) {
-        this.sex = sex;
-    }
-
-    public String getHeadImage() {
-        return headImage;
-    }
-
-    public void setHeadImage(String headImage) {
-        this.headImage = headImage;
-    }
-
-    public String getSign() {
-        return sign;
-    }
-
-    public void setSign(String sign) {
-        this.sign = sign;
-    }
-
     public UserType getUserType() {
         return userType;
     }
@@ -78,16 +41,20 @@ public class User {
         this.userType = userType;
     }
 
+    public int getUserCity() {
+        return userCity;
+    }
+
+    public void setUserCity(int userCity) {
+        this.userCity = userCity;
+    }
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
+                "userId=" + userId +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", nickname='" + nickname + '\'' +
-                ", sex=" + sex +
-                ", headImage='" + headImage + '\'' +
-                ", sign='" + sign + '\'' +
+                ", userCity='" + userCity + '\'' +
                 ", userType=" + userType +
                 '}';
     }
