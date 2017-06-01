@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.huangfugui.ibatis.mapper.ApplyMapper">
+    <resultMap id="applyMap" type="apply">
+        <association property="user" column="user_id" select="org.huangfugui.ibatis.mapper.UserMapper.selectByUserId"></association>
+        <association property="decreaseType" column="decrease_type" select="org.huangfugui.ibatis.mapper.DecreaseTypeMapper.selectById"></association>
+        <association property="mainFactor" column="main_factor" select="org.huangfugui.ibatis.mapper.FactorMapper.selectById"></association>
+        <association property="secondFactor" column="second_factor" select="org.huangfugui.ibatis.mapper.FactorMapper.selectById"></association>
+        <association property="thirdFactor" column="third_factor" select="org.huangfugui.ibatis.mapper.FactorMapper.selectById"></association>
+        <association property="period" column="period_id" select="org.huangfugui.ibatis.mapper.PeriodMapper.selectById"></association>
+    </resultMap>
+    <select id="selectByUserId" resultMap="applyMap">
+      SELECT
+        *
+      FROM
+        apply
+      WHERE
+        user_id=#{userId}
+    </select>
+</mapper>

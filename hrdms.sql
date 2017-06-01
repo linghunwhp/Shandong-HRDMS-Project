@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2017-05-31 11:00:20
+-- Generation Time: 2017-06-01 10:44:24
 -- 服务器版本： 5.6.17
 -- PHP Version: 5.5.12
 
@@ -31,7 +31,7 @@ USE `hrdms`;
 CREATE TABLE IF NOT EXISTS `apply` (
   `apply_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
-  `orginal_num` int(11) NOT NULL,
+  `original_num` int(11) NOT NULL,
   `current_num` int(11) NOT NULL,
   `decrease_type` int(11) DEFAULT NULL,
   `main_factor` int(11) DEFAULT NULL,
@@ -48,7 +48,15 @@ CREATE TABLE IF NOT EXISTS `apply` (
   KEY `main_factor_idx` (`main_factor`,`second_factor`,`third_factor`),
   KEY `second_factor_idx` (`second_factor`),
   KEY `third_factor_idx` (`third_factor`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- 转存表中的数据 `apply`
+--
+
+INSERT INTO `apply` (`apply_id`, `user_id`, `original_num`, `current_num`, `decrease_type`, `main_factor`, `main_describe`, `second_factor`, `second_describe`, `third_factor`, `third_describe`, `other`, `period_id`) VALUES
+(1, 1, 11000, 15000, 1, 1, '未知ing...', 2, '未知ing...', 3, '未知ing...', '未知ing...', 1),
+(2, 1, 15000, 20000, 1, 1, '不知道ing...', 2, '不知道ing...', 3, '不知道ing...', '不知道ing...', 1);
 
 -- --------------------------------------------------------
 
@@ -78,7 +86,14 @@ CREATE TABLE IF NOT EXISTS `decrease_type` (
   `de_type_id` int(11) NOT NULL AUTO_INCREMENT,
   `de_type_name` varchar(255) NOT NULL,
   PRIMARY KEY (`de_type_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `decrease_type`
+--
+
+INSERT INTO `decrease_type` (`de_type_id`, `de_type_name`) VALUES
+(1, '行业前景差');
 
 -- --------------------------------------------------------
 
@@ -183,7 +198,16 @@ CREATE TABLE IF NOT EXISTS `factor` (
   `factor_id` int(11) NOT NULL AUTO_INCREMENT,
   `factor_name` varchar(255) NOT NULL,
   PRIMARY KEY (`factor_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- 转存表中的数据 `factor`
+--
+
+INSERT INTO `factor` (`factor_id`, `factor_name`) VALUES
+(1, '人才过少'),
+(2, '机器设备不足'),
+(3, '政策不支持');
 
 -- --------------------------------------------------------
 
@@ -228,11 +252,18 @@ CREATE TABLE IF NOT EXISTS `notice` (
 
 CREATE TABLE IF NOT EXISTS `period` (
   `period_id` int(11) NOT NULL AUTO_INCREMENT,
-  `period_start_time` datetime NOT NULL,
-  `period_end_time` datetime NOT NULL,
-  `period_state` bit(2) NOT NULL,
+  `period_start_time` date NOT NULL,
+  `period_end_time` date NOT NULL,
+  `period_state` int(11) NOT NULL,
   PRIMARY KEY (`period_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `period`
+--
+
+INSERT INTO `period` (`period_id`, `period_start_time`, `period_end_time`, `period_state`) VALUES
+(1, '2017-05-31', '2017-06-30', 1);
 
 -- --------------------------------------------------------
 
