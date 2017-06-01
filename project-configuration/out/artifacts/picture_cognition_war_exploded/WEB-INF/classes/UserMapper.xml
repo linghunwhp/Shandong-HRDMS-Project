@@ -8,12 +8,32 @@
        user_id,
        username,
        password,
-       user_type
+       user_type,
+       user_city
      FROM
        t_user
      WHERE
        username = #{username} AND password = #{password}
   </select>
+
+
+
+
+    <select id="getCityEnterprise" resultType="user">
+        SELECT
+          user_id,
+          username,
+          password,
+          user_type,
+          user_city
+        FROM
+          t_user
+        WHERE
+          user_city=#{cityId}
+        AND
+          user_type=0
+    </select>
+
 
   <select id="selectByUserId" resultType="user">
     SELECT
@@ -26,7 +46,6 @@
      WHERE
       user_id=#{userId}
   </select>
-
 
 
 </mapper>

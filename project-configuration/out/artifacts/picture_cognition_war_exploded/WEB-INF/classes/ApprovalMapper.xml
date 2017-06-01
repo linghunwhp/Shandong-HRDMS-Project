@@ -23,10 +23,43 @@
 
     <select id="selectByUser" resultType="approval">
         select
-        *
+          *
         FROM
-        approval
+          approval
         WHERE
-        approval_level=#{level}
+          user_id=#{userId}
     </select>
+
+    <select id="selectByStatus" resultType="Approval">
+        SELECT
+          *
+        FROM
+          approval
+        WHERE
+          approval_status=#{approvalStatus}
+    </select>
+
+
+    <select id="selectByApplyId" resultType="approval">
+        SELECT
+          *
+        FROM
+          approval
+        WHERE
+          apply_id=#{applyId}
+    </select>
+
+    <delete id="deleteByApprovalId">
+        DELETE FROM
+          approval
+        WHERE
+          approval_id=#{approvalId}
+    </delete>
+
+    <delete id="deleteByApplyId">
+        DELETE FROM
+          approval
+        WHERE
+          apply_id=#{applyId}
+    </delete>
 </mapper>

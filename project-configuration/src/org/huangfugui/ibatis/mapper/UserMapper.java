@@ -19,5 +19,7 @@ public interface UserMapper {
 
     User selectByUserId(@Param("userId") int userId);
 
+
     List<User> getCityEnterprise(@Param("cityId")int cityId);
+
 }

@@ -15,6 +15,10 @@
         <typeAlias type="org.huangfugui.ibatis.po.IndustryBig" alias="industryBig"></typeAlias>
         <typeAlias type="org.huangfugui.ibatis.po.IndustrySmall" alias="industrySmall"></typeAlias>
         <typeAlias type="org.huangfugui.ibatis.po.Approval" alias="approval"></typeAlias>
+        <typeAlias type="org.huangfugui.ibatis.po.Period" alias="period"></typeAlias>
+        <typeAlias type="org.huangfugui.ibatis.po.DecreaseType" alias="decreaseType"></typeAlias>
+        <typeAlias type="org.huangfugui.ibatis.po.Factor" alias="factor"></typeAlias>
+        <typeAlias type="org.huangfugui.ibatis.po.Apply" alias="apply"></typeAlias>
     </typeAliases>
 
     <typeHandlers>
@@ -29,6 +33,10 @@
         <mapper resource="IndustryBigMapper.xml"></mapper>
         <mapper resource="IndustrySmallMapper.xml"></mapper>
         <mapper resource="ApprovalMapper.xml"></mapper>
+        <mapper resource="PeriodMapper.xml"></mapper>
+        <mapper resource="DecreaseTypeMapper.xml"></mapper>
+        <mapper resource="FactorMapper.xml"></mapper>
+        <mapper resource="ApplyMapper.xml"></mapper>
     </mappers>
 
 </configuration>

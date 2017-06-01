@@ -55,4 +55,11 @@
         WHERE
           approval_id=#{approvalId}
     </delete>
+
+    <delete id="deleteByApplyId">
+        DELETE FROM
+          approval
+        WHERE
+          apply_id=#{applyId}
+    </delete>
 </mapper>
