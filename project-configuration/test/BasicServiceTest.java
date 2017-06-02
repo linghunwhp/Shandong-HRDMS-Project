@@ -14,9 +14,9 @@ public class BasicServiceTest {
     @Autowired
     private BasicService basicService;
 
-    @Test
+    /*@Test
     public void registerUser() throws Exception {
         Result result = basicService.registerUser("1151650717@qq.com","123","0");
         System.out.println(result);
-    }
+    }*/
 }

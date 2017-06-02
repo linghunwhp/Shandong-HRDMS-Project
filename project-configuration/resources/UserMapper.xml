@@ -3,28 +3,30 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.huangfugui.ibatis.mapper.UserMapper">
+  <select id="selectByUsernameAndPassword" resultType="user">
+    SELECT
+       user_id,
+       username,
+       password,
+       user_type
+     FROM
+       t_user
+     WHERE
+       username = #{username} AND password = #{password}
+  </select>
 
-    <insert id="insertUser">
-      INSERT IGNORE INTO
-        t_user (username,password,user_type)
-      VALUES
-        (#{username},#{password},#{userType})
-    </insert>
+  <select id="selectByUserId" resultType="user">
+    SELECT
+      user_id,
+      username,
+      password,
+      user_type
+     FROM
+      t_user
+     WHERE
+      user_id=#{user_id}
+  </select>
 
-    <select id="selectByUsernameAndPassword" resultType="user">
-      select
-        id,
-        username,
-        password,
-        nickname,
-        sex,
-        head_image,
-        sign,
-        user_type
-      FROM
-        t_user
-      WHERE
-        username = #{username} AND password = #{password}
-    </select>
+
 
 </mapper>

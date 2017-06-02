@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.huangfugui.ibatis.mapper.EnterpriseMapper">
+
+    <resultMap id="enterpriseMap" type="enterprise">
+      <association property="user" column="userId" select="org.huangfugui.ibatis.mapper.UserMapper.selectByUserId"></association>
+      <association property="industrySmall" column="enterprise_industry" select="org.huangfugui.ibatis.mapper.IndustrySmallMapper.selectBySmallId"></association>
+      <association property="enterpriseProperty" column="enterprise_property" select="org.huangfugui.ibatis.mapper.EnterprisePropertyMapper.selectByPropertyId"></association>
+    </resultMap>
+    <select id="selectEnterpriseByUserId" resultMap="enterpriseMap">
+      SELECT
+        *
+      FROM
+        enterprise
+      WHERE
+        userId=#{userId}
+    </select>
+
+    <insert id="insertEnterprise" parameterType="enterprise">
+      INSERT INTO enterprise
+        (userId,
+        enterprise_address,
+        enterprise_code,
+        enterprise_name,
+        enterprise_industry,
+        enterprise_property,
+        enterprise_business,
+        enterprise_contactor,
+        contactor_address,
+        enterprise_post_code,
+        enterprise_phone,
+        enterprise_fax,
+        enterprise_email)
+      VALUES
+        (#{user.userId},
+        #{enterpriseAddress},
+        #{enterpriseCode},
+        #{enterpriseName},
+        #{industrySmall.industrySmallId},
+        #{enterpriseProperty.propertyId},
+        #{enterpriseBusiness},
+        #{enterpriseContactor},
+        #{contactorAddress},
+        #{enterprisePostCode},
+        #{enterprisePhone},
+        #{enterpriseFax},
+        #{enterpriseEmail})
+    </insert>
+
+    <update id="updateEnterprise" parameterType="enterprise">
+      UPDATE enterprise
+      <set>
+        <if test="enterpriseAddress != null and enterpriseAddress !=''">
+          enterprise_address=#{enterpriseAddress},
+        </if>
+        <if test="enterpriseCode != null and enterpriseCode !=''">
+          enterprise_code=#{enterpriseCode},
+        </if>
+        <if test="enterpriseName != null and enterpriseName !=''">
+          enterprise_name=#{enterpriseName},
+        </if>
+        <if test="industrySmall != null and industrySmall !=''">
+          enterprise_industry=#{industrySmall.industrySmallId},
+        </if>
+        <if test="enterpriseProperty != null and enterpriseProperty !=''">
+          enterprise_property=#{enterpriseProperty.propertyId},
+        </if>
+        <if test="enterpriseBusiness != null and enterpriseBusiness !=''">
+          enterprise_business=#{enterpriseBusiness},
+        </if>
+        <if test="enterpriseContactor != null and enterpriseContactor !=''">
+          enterprise_contactor=#{enterpriseContactor},
+        </if>
+        <if test="contactorAddress != null and contactorAddress !=''">
+          contactor_address=#{contactorAddress},
+        </if>
+        <if test="enterprisePostCode != null and enterprisePostCode !=''">
+          enterprise_post_code=#{enterprisePostCode},
+        </if>
+        <if test="enterprisePhone != null and enterprisePhone !=''">
+          enterprise_phone=#{enterprisePhone},
+        </if>
+        <if test="enterpriseFax != null and enterpriseFax !=''">
+          enterprise_fax=#{enterpriseFax},
+        </if>
+        <if test="enterpriseEmail != null and enterpriseEmail !=''">
+          enterprise_email=#{enterpriseEmail}
+        </if>
+      </set>
+      WHERE
+        userId=#{user.userId}
+    </update>
+</mapper>

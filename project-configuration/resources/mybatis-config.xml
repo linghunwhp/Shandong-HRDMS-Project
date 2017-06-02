@@ -10,16 +10,25 @@
 
     <typeAliases>
         <typeAlias type="org.huangfugui.ibatis.po.User" alias="user"></typeAlias>
+        <typeAlias type="org.huangfugui.ibatis.po.Enterprise" alias="enterprise"></typeAlias>
+        <typeAlias type="org.huangfugui.ibatis.po.EnterpriseProperty" alias="enterpriseProperty"></typeAlias>
+        <typeAlias type="org.huangfugui.ibatis.po.IndustryBig" alias="industryBig"></typeAlias>
+        <typeAlias type="org.huangfugui.ibatis.po.IndustrySmall" alias="industrySmall"></typeAlias>
+        <typeAlias type="org.huangfugui.ibatis.po.Notice" alias="notice"></typeAlias>
     </typeAliases>
 
     <typeHandlers>
-        <typeHandler handler="org.apache.ibatis.type.EnumTypeHandler" javaType="org.huangfugui.ibatis.enums.Sex"></typeHandler>
-        <typeHandler handler="org.apache.ibatis.type.EnumTypeHandler" javaType="org.huangfugui.ibatis.enums.UserType"></typeHandler>
+        <typeHandler handler="org.apache.ibatis.type.EnumOrdinalTypeHandler" javaType="org.huangfugui.ibatis.enums.UserType"></typeHandler>
     </typeHandlers>
 
     <!--引入映射器-->
     <mappers>
         <mapper resource="UserMapper.xml"></mapper>
+        <mapper resource="EnterpriseMapper.xml"></mapper>
+        <mapper resource="EnterprisePropertyMapper.xml"></mapper>
+        <mapper resource="IndustryBigMapper.xml"></mapper>
+        <mapper resource="IndustrySmallMapper.xml"></mapper>
+        <mapper resource="NewsMapper.xml"></mapper>
     </mappers>
 
 </configuration>
